@@ -7,6 +7,6 @@ import { authGuard } from './core/auth.guard';
 export const routes: Routes = [
   { path: '', component: EventList },
   { path: 'event/:id', component: EventDetails },
-  { path: 'admin/create', component: CreateEvent, canActivate: [authGuard] },
+  { path: 'admin/create', component: CreateEvent },
   { path: '**', redirectTo: '' },
 ];
