@@ -1,9 +1,10 @@
 import { Component, computed, input, linkedSignal, output } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-event-card',
-  imports: [DatePipe],
+  imports: [DatePipe, RouterLink],
   template: `
     <div
       class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
@@ -35,7 +36,7 @@ import { DatePipe } from '@angular/common';
               } @else if (days < 0) {
                 Past Event
               } @else {
-                Happing Now !
+                Happening Now !
               }
             </div>
           }
@@ -57,7 +58,8 @@ import { DatePipe } from '@angular/common';
         </div>
 
         <div class="mt-4 pt-4 border-t border-gray-100 text-right">
-          <a class="text-blue-600 font-medium hover:underline cursor-pointer">
+          <a [routerLink]="['/event', id()]"
+             class="text-blue-600 font-medium hover:underline cursor-pointer">
             View Details &rarr;
           </a>
         </div>
@@ -69,6 +71,7 @@ export class EventCard {
   // TODO Mod 1: Implement input(), output(), and model()
   readonly title = input.required<string>();
   readonly image = input.required<string>();
+  readonly id = input.required<string>();
   readonly date = input<string>();
   readonly initialLike = input(false);
   delete = output()
