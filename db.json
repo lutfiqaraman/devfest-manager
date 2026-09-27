@@ -62,5 +62,10 @@
       "id": "2X1F_P8"
     }
   ],
-  "tickets": []
+  "tickets": [
+    {
+      "eventId": "2X1F_P8",
+      "id": 1
+    }
+  ]
 }
